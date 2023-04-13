@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# UML Component Diagram of OurFamily Website
-
-<img src="images/draft-UML-component-diagram.png">
-=======
 # INFO443 AA - P1 checkpoint #1: code base proposal
 Efra Ahsan (eahsan@uw.edu) & Yuhang Liu (Yliu34@uw.edu)
 
@@ -15,5 +10,6 @@ Checkout the hosted application here: https://family-app-7c595.web.app/
 
 The original coders were Efra Ahsan, Kush Bhatia, Carl Searle, and Yusuf Farah.
 
+# UML Component Diagram of OurFamily Website
 
->>>>>>> 61bacd5c9d8551daa9275a2c2deb9836333b3176
+<img src="images/draft-UML-component-diagram.png">
