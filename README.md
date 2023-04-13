@@ -1,2 +1,3 @@
-# project-1-Cinnamorollx
-project-1-Cinnamorollx created by GitHub Classroom
+# UML Component Diagram of OurFamily Website
+
+<img src="images/draft-UML-component-diagram.png">
