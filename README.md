@@ -16,4 +16,4 @@ The original coders were Efra Ahsan, Kush Bhatia, Carl Searle, and Yusuf Farah.
 
 # UML Sequence Diagram of OurFamily Website
 
-<img src="image/draft-UML-sequence-diagram.png">
+<img src="images/draft-UML-sequence-diagram.png">
