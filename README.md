@@ -13,3 +13,7 @@ The original coders were Efra Ahsan, Kush Bhatia, Carl Searle, and Yusuf Farah.
 # UML Component Diagram of OurFamily Website
 
 <img src="images/draft-UML-component-diagram.png">
+
+# UML Sequence Diagram of OurFamily Website
+
+<img src="image/draft-UML-sequence-diagram.png">
