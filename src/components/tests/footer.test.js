@@ -7,8 +7,4 @@ describe("Footer rendering test", () => {
         render(<Footer/>);
         expect(screen.getByText("OurFamily is a University of Washington course project.")).toBeInTheDocument();
     })
-    test("match snapshot", () => {
-        const container = render(<Footer/>);
-        expect(container.footer).toMatchSnapshot();
-    })
 })

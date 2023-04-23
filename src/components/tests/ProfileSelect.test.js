@@ -3,10 +3,8 @@ import { render, screen,  } from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import HomePage from '../HomePage';
-import Header from '../Header';
 import ProfileSelect from '../ProfileSelect';
-import Home from '../Home';
-import App from '../../App'
+
 
 describe("test profile select page", () => {
     test("the page shows correctly", () => {
@@ -17,8 +15,20 @@ describe("test profile select page", () => {
         );
         expect(screen.getByTestId("well-technically")).toBeInTheDocument();
     })
-    
-    describe("test 4 profiles can be clicked", () =>  {
+    test("no call of setCurrentProfile when not clicking the profile",() => {
+        const callback = jest.fn();
+           
+            render(
+                <MemoryRouter>
+                <ProfileSelect setCurrentProfile={callback} />
+                </MemoryRouter>
+            );
+            expect(screen.getByText("Who's Here?")).toBeInTheDocument();
+           
+            expect(callback).toBeCalledTimes(0);
+    })
+
+    describe("test 4 profiles can be clicked and setCurrentProfile being called", () =>  {
         test("correctly set Linda profile", () => {
             const callback = jest.fn();
            
