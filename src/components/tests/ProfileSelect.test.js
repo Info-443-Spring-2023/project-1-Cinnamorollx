@@ -8,7 +8,7 @@ import ProfileSelect from '../ProfileSelect';
 import Home from '../Home';
 import App from '../../App'
 
-describe("try test hompeage", () => {
+describe("test profile select page", () => {
     test("the page shows correctly", () => {
         render(
             <MemoryRouter>
