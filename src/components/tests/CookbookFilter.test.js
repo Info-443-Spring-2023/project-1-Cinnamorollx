@@ -10,7 +10,7 @@ describe("test cookbook filter's content and click functionality", () => {
         render(<FilterBar/>);
         const checkboxs = screen.getAllByRole('checkbox');
         expect(checkboxs).toHaveLength(10);
-        
+
     });
     test("check if each checkbox can be clicked by a iteration", () => {
         render(<FilterBar/>);
