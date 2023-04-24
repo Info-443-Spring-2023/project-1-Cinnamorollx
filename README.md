@@ -12,8 +12,15 @@ The original coders were Efra Ahsan, Kush Bhatia, Carl Searle, and Yusuf Farah.
 
 # UML Component Diagram of OurFamily Website
 
-<img src="images/draft-UML-component-diagram.png">
+<img src="images/draft-UML-component-diagram.png" alt="draft-UML-diagram">
 
 # UML Sequence Diagram of OurFamily Website
 
-<img src="images/draft-UML-sequence-diagram.png">
+<img src="images/draft-UML-sequence-diagram.png" alt="draft UML sequence diagram">
+
+
+# Our automated test coverage
+
+<img src="images/test-coverage.png" alt="automated test coverage">
+
+So the three main functionalities we tested in our automated test is the interaction with Footer, interaction with ProfileSelect component and the functionality of Cookbook Filter. These three components got 100% coverage.
