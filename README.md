@@ -24,9 +24,12 @@ The original coders were Efra Ahsan, Kush Bhatia, Carl Searle, and Yusuf Farah.
 First, run the following command:
 `npm install --save-dev jest --force`
 
-Next, run `Npm test` followed by typing `a` into the terminal and hitting enter to run the tests.
+Next, run `Npm test` followed by typing `a` into the terminal and hitting enter to run all of the tests.
 
-You can also run `npm run test:coverage` to see the generated coverage report.
+If you'd like to run each test file individually, hit ^C to exit out of the Watch Usage interface back onto the regular terminal, and
+run `Npm test footer` to see Footer.test.js *or* `Npm test profile` to see ProfileSelect.test.js *or* `Npm test cookbook` to see CookbookFilter.test.js.
+
+You can also run `npm run test:coverage` to see the generated coverage report, as shown below.
 
 
 # Our automated test coverage
