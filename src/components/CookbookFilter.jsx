@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 
-export function FilterBar(props){
+export default function FilterBar(props){
   return (
     <div className='filter-bar'>
       <div>

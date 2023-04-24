@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RecipeCards } from './RecipeCards';
-import { FilterBar } from './CookbookFilter';
+import  FilterBar  from './CookbookFilter';
 
 import Form from 'react-bootstrap/Form';
 import { filter } from 'lodash';
