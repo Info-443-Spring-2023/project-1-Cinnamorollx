@@ -19,6 +19,16 @@ The original coders were Efra Ahsan, Kush Bhatia, Carl Searle, and Yusuf Farah.
 <img src="images/draft-UML-sequence-diagram.png" alt="draft UML sequence diagram">
 
 
+# How to run our tests
+
+First, run the following command:
+`npm install --save-dev jest --force`
+
+Next, run `Npm test` followed by typing `a` into the terminal and hitting enter to run the tests.
+
+You can also run `npm run test:coverage` to see the generated coverage report.
+
+
 # Our automated test coverage
 
 <img src="images/test-coverage.png" alt="automated test coverage">
