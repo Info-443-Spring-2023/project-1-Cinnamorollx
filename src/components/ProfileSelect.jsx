@@ -14,9 +14,9 @@ const ProfileSelect = ({setCurrentProfile}) => {
   return (
     <>
       <div className='text-center'>
-        <div className='container-head home-banner mx-5 my-4 pl-3'>
+        <div data-testid="home-banner" className='container-head home-banner mx-5 my-4 pl-3'>
           <h1>This is OurFamily</h1>
-          <h3 data-testid = "well-technically">Well, technically <i>your</i> family.</h3>
+          <h3 data-testid="well-technically">Well, technically <i>your</i> family.</h3>
         </div>
         <h2 className='mt-5'>Who's Here?</h2>
         <main className="profile-card-group container-main profile-container">

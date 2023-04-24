@@ -17,78 +17,92 @@ describe("test profile select page", () => {
     })
     test("no call of setCurrentProfile when not clicking the profile",() => {
         const callback = jest.fn();
-           
+
             render(
                 <MemoryRouter>
-                <ProfileSelect setCurrentProfile={callback} />
+                    <ProfileSelect setCurrentProfile={callback} />
                 </MemoryRouter>
             );
             expect(screen.getByText("Who's Here?")).toBeInTheDocument();
-           
+
             expect(callback).toBeCalledTimes(0);
     })
 
     describe("test 4 profiles can be clicked and setCurrentProfile being called", () =>  {
         test("correctly set Linda profile", () => {
             const callback = jest.fn();
-           
+
             render(
                 <MemoryRouter>
-                <ProfileSelect setCurrentProfile={callback} />
+                    <ProfileSelect setCurrentProfile={callback} />
                 </MemoryRouter>
             );
             expect(screen.getByText("Who's Here?")).toBeInTheDocument();
-           
+
             userEvent.click(screen.getByTestId("linda-profile"));
-            
+
             expect(callback).toBeCalled();
-    
+
         })
         test("correctly set Timothy profile", () => {
             const callback = jest.fn();
-           
+
             render(
                 <MemoryRouter>
-                <ProfileSelect setCurrentProfile={callback} />
+                    <ProfileSelect setCurrentProfile={callback} />
                 </MemoryRouter>
             );
             expect(screen.getByText("Who's Here?")).toBeInTheDocument();
-           
+
             userEvent.click(screen.getByTestId("timothy-profile"));
-            
+
             expect(callback).toBeCalled();
 
         })
         test("correctly set Bernard profile", () => {
             const callback = jest.fn();
-           
+
             render(
                 <MemoryRouter>
-                <ProfileSelect setCurrentProfile={callback} />
+                    <ProfileSelect setCurrentProfile={callback} />
                 </MemoryRouter>
             );
             expect(screen.getByText("Who's Here?")).toBeInTheDocument();
-           
+
             userEvent.click(screen.getByTestId("bernard-profile"));
-            
+
             expect(callback).toBeCalled();
 
         })
         test("correctly set Grace profile", () => {
             const callback = jest.fn();
-           
+
             render(
                 <MemoryRouter>
-                <ProfileSelect setCurrentProfile={callback} />
+                    <ProfileSelect setCurrentProfile={callback} />
                 </MemoryRouter>
             );
             expect(screen.getByText("Who's Here?")).toBeInTheDocument();
-           
+
             userEvent.click(screen.getByTestId("grace-profile"));
-            
+
             expect(callback).toBeCalled();
 
         })
     })
-    
+
+    describe("Testing ProfileSelect page styling", () => {
+        test("Home banner renders", () => {
+            const callback = jest.fn();
+
+            render(
+                <MemoryRouter>
+                    <ProfileSelect setCurrentProfile={callback} />
+                </MemoryRouter>
+            );
+
+            const homeBanner = screen.getByTestId("home-banner");
+            expect(homeBanner).toBeInTheDocument();
+        })
+    })
 })
