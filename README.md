@@ -10,16 +10,16 @@ Checkout the hosted application here: https://family-app-7c595.web.app/
 
 The original coders were Efra Ahsan, Kush Bhatia, Carl Searle, and Yusuf Farah.
 
-# UML Component Diagram of OurFamily Website
+## UML Component Diagram of OurFamily Website
 
 <img src="images/draft-UML-component-diagram.png" alt="draft-UML-diagram">
 
-# UML Sequence Diagram of OurFamily Website
+## UML Sequence Diagram of OurFamily Website
 
 <img src="images/draft-UML-sequence-diagram.png" alt="draft UML sequence diagram">
 
 
-# How to run our tests
+## How to run our tests
 
 First, run the following command:
 `npm install --save-dev jest --force`
@@ -32,7 +32,7 @@ run `Npm test footer` to see Footer.test.js *or* `Npm test profile` to see Profi
 You can also run `npm run test:coverage` to see the generated coverage report, as shown below.
 
 
-# Our automated test coverage
+## Our automated test coverage
 
 <img src="images/test-coverage.png" alt="automated test coverage">
 
