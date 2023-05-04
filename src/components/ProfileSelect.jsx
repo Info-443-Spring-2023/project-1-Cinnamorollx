@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import "../index.css"
 
-
+// setCurrentProfile is passed from app.js
 const ProfileSelect = ({setCurrentProfile}) => {
   const navigate = useNavigate();
 

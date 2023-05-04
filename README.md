@@ -90,13 +90,16 @@ Other than Calendar function, another flow in the app is about PhotoAlbums compo
 
 After navigating to PhotoAlbums Page, the page pass a props to the function `Jumbotron(props)` in Header component. In that case, the jumbotron will display different illustration image under the navbar. `Jumbotron(props)` will display different content based on the props that tell which page the app is current on. For PhotoAlbum page, there will be displaiyng 3 different cards: "All Image","Kids Album" and "vacation Album" which represent 3 different album of photos. Whenever a card is clicked, the PhotoAlbum page will call `PhotoGallery()` to query the stored photo. Also, `PhotoGallery()` handle with uploading and storing new uploaded image.
 
-Lastly, there is a process flow for Cookbook component. Figure 2 illustrates a flow from user's view of using Cookbook to add a new recipe in the app. User could add a new recipe form in cookpage by clicking "add a recipe" button, then inputing new recipe information and then saving. In code process side, when navigating to cookbook page, the app will render the current cards of recipes. Cookbook page uses Firebase to store the recipe cards. The default filter value is an empty array, which means that every recipe cards will be rendered. Whenever a checkbox in Cookbook filter is clicked, the filter array would add the name of the checkbox to the array, and page will rerender new recipe cards after filtering with the filter array. Beside, when the "add a recipe" button is pressed, a function `handleModalShow` will be called to change the style of a form of adding recipe to visible which creates a pop up in browser. When "save changes" button in the form is pressed, the input in the form will be saved to firebase database.
+Lastly, there is a process flow for Cookbook component. Figure 2 illustrates a flow from user's view of using Cookbook to add a new recipe in the app. User could add a new recipe form in cookpage by clicking "add a recipe" button, then inputing new recipe information and then saving. 
 
 <img src="images/draft-UML-sequence-diagram.png" alt="draft UML sequence diagram">
 
 _Figure 2 - UML Sequence Diagram of OurFamily Website_
 
 A seuqence flow of a user trying to add a new recipe in Cookbook Page.
+
+In code process side, when navigating to cookbook page, the app will render the current cards of recipes.
+Cookbook page uses Firebase to store the recipe cards. The default filter value is an empty array, which means that every recipe cards will be rendered. Whenever a checkbox in Cookbook filter is clicked, the filter array would add the name of the checkbox to the array, and page will rerender new recipe cards after filtering with the filter array. Beside, when the "add a recipe" button is pressed, a function `handleModalShow` will be called to change the style of a form of adding recipe to visible which creates a pop up in browser. When "save changes" button in the form is pressed, the input in the form will be saved to firebase database.
 
 ## Architecture Assessment
 
@@ -154,7 +157,7 @@ an example of commented-out code we removed is this:
   {/* <div className='calendar-error-resolve'>
 
       {/* <div className='calendar-error-resolve'>Calendar is only visible on larger screens!</div> */}
-      
+
 ```
 
 A fifth code smell we generally saw across the code was that of **long functions**. Although this goes in hand with the first smell of *duplicate code* being written across the software, the issue with long functions definitely needs to be resolved
@@ -164,12 +167,19 @@ _**Refactoring:**_ Refactoring a long functions is time-consuming and risky. We 
 
 #### Documentation/Readability Concerns
 
+The Documentation of original code is not that much as we mentioned in our code smell. When we read the code, we found that it is a little bit confusing to read a component that calls a function that was passed by the props. For instance, when reading ProfileSelect, we found there is a function called setCurrentProfile, but it is not originally defined in ProfileSelect. In this case, we don't know what setCurrentProfile does and we need to find which components create this function and pass it as a props to ProfileSelect. But overall, the naming of functions are simple and easy to understand, which saves us a lot of time on understanding the function.
+
+#### Standard Violations
+
+From our inspection, we don't see any standard violations from our codebase. We meet the accessibility requirements with accessible colors and alternative text for images.
 
 #### Design Quality Deficiencies
 
+We haven't found any design quality deficiencies in our codebase. With our automated test, we found that the functions in our app can run correctly without requiring any levels of qualities.
 
 ## Unit/Integration Tests
 
+We created about a dozen of unit tests for test the functionality of the ProfileSelct component, Cookbook filter components and the style of footer component. We choose these 3 aspects of our code because whether these three pages render and works correctly strongly affect the performance of the app. As the first step and the first page to be seen on the website, ProfileSelct page should render correctly and it should then navigate to the homepage with the correct username that the user choose. 
 
 ### Testing Overview
 
