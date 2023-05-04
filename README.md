@@ -104,21 +104,32 @@ Assessing the overall functionality and structure of these selected elements, th
 #### Code Smells
 The first code smell we detected was that of **duplicate code** in both the CookbookFilter component as well as the ProfileSelect component. We saw that instead of writing repeated chunks of code into reusable function with paramaters, the code was duplicated to produce the desired outcome, even in situations where the only difference between chunks was a single word.
 
+_Refactoring:_ In Cookbook Filter, these are couple of duplicated lines for creating the checkbox in the filter with. In previous code, we manually create 10 Forms for the checkboxs. In our refactoring, we create a new function `createForm(name,type)` that could create a form with the parameter "name" and "type". By doing so, we don't need to write a long line of a form element when we want to add a new checkbox, instead, we could just call `createForm()` with the name we want and the type to create a checkbox.
+
+Also, in HomePage, there is a duplicated rendering
+
 The second code smell we detected was that there were **zero comments**. This is concerning because specifically for one of our elements of concern, the ProfileSelect component, a comment explaining one of the state functionalities that was passed
 parent to child would have been really helpful because the process of switching users is not the most intuitive. It's especially worth commenting what the initial state value is because that information is difficult to find for anyone who did not write the original version of code. Additionally, within the CookbookFilter component, comments would have been helpful to indicate what the nature of the click handler function is, since it's passed in as a prop.
+
+_Refactoring:_ We add some comments 
 
 A third code smell was that of **speculative generality** within the CookbookFilter component, because the function
 is tracking units such as the "id" and "name" of each of the checkboxes despite this information never being used. The
 function already tracks the "label" property of each of the checkboxes, which is how other coupled functions are able
 to use the information to filter the cookbook to the users' selections, so the "id" and "name" properties can be discarded.
 
+_Refactoring:_ We removed the unused value and unused library in ProfileSelect, Footer and CookbookFilter. With linter, the unused value is marked with underline and we just removed the unused "id" property of in our cookbook filter.
+
 A fourth code smell is that the ProfileSelect component includes a commented-out button to "Edit Profile", which is a **non-existing affordance of the software**. It's important to remove code like this entirely because it doesn't fit the affordances
 of the application and is simply confusing to leave documented within the program.
+
+_Refactoring:_ 
+
 
 A fifth code smell we generally saw across the code was that of **long functions**. Although this goes in hand with the first smell of *duplicate code* being written across the software, the issue with long functions definitely needs to be resolved
 because the software loses its articulation and readability when it's long and unorganized.
 
-
+_Refactoring:_ 
 #### Documentation/Readability Concerns
 
 #### Design Quality Deficiencies

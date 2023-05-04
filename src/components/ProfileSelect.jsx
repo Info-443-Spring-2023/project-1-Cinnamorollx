@@ -6,6 +6,7 @@ import "../index.css"
 const ProfileSelect = ({setCurrentProfile}) => {
   const navigate = useNavigate();
 
+  // set CurrentProfile to be newUser to let the app track the current user
   const handleLogin = (newUser) => {
     setCurrentProfile(newUser)
     navigate("/home/");

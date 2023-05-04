@@ -2,52 +2,31 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 
 export default function FilterBar(props){
+
+
+  function createForm(name, type) {
+    return(
+      <Form.Check
+                inline
+                label= {name.charAt(0).toUpperCase() + name.slice(1)}
+                type={type}
+                name = {name}
+                onClick={props.clickHandle} //clickHandle is passed through the props
+              />
+
+    )
+  }
   return (
     <div className='filter-bar'>
       <div>
         <Form>
           {['checkbox'].map((type) => (
             <div key={`inline-${type}`} className="my-1">
-              <Form.Check
-                inline
-                label="Breakfast"
-                type={type}
-                id={`inline-${type}-bre`}
-                name='breakfast'
-                onClick={props.clickHandle}
-              />
-              <Form.Check
-                inline
-                label="Lunch"
-                type={type}
-                name='lunch'
-                id={`inline-${type}-lun`}
-                onClick={props.clickHandle}
-              />
-              <Form.Check
-                inline
-                label="Dinner"
-                type={type}
-                name='dinner'
-                id={`inline-${type}-din`}
-                onClick={props.clickHandle}
-              />
-              <Form.Check
-                inline
-                label="Dessert"
-                name='dessert'
-                type={type}
-                id={`inline-${type}-des`}
-                onClick={props.clickHandle}
-              />
-              <Form.Check
-                inline
-                label="Snack"
-                name='snack'
-                type={type}
-                id={`inline-${type}-sna`}
-                onClick={props.clickHandle}
-              />
+              {createForm("breakfast", type)}     {/*create for each cateogory of food */}
+              {createForm("lunch", type)}
+              {createForm("dinner",type)}
+              {createForm("dessert",type)}
+              {createForm("snack",type)}
             </div>
           ))}
         </Form>
@@ -56,46 +35,11 @@ export default function FilterBar(props){
         <Form>
           {['checkbox'].map((type) => (
             <div key={`inline-${type}`} className="my-1">
-              <Form.Check
-                inline
-                label="Red Meat"
-                name='red meat'
-                type={type}
-                id={`inline-${type}-red`}
-                onClick={props.clickHandle}
-              />
-              <Form.Check
-                inline
-                label="Poultry"
-                name='poultry'
-                type={type}
-                id={`inline-${type}-pou`}
-                onClick={props.clickHandle}
-              />
-              <Form.Check
-                inline
-                label="Seafood"
-                name='seafood'
-                type={type}
-                id={`inline-${type}-sea`}
-                onClick={props.clickHandle}
-              />
-              <Form.Check
-                inline
-                label="Vegetarian"
-                name='vegetarian'
-                type={type}
-                id={`inline-${type}-veget`}
-                onClick={props.clickHandle}
-              />
-              <Form.Check
-                inline
-                label="Vegan"
-                name='vegan'
-                type={type}
-                id={`inline-${type}-vegan`}
-                onClick={props.clickHandle}
-              />
+              {createForm("red meat",type)}
+              {createForm("poultry",type)}
+              {createForm("seafood",type)}
+              {createForm("vegetarian",type)}
+              {createForm("vegan",type)}
             </div>
           ))}
         </Form>
