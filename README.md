@@ -150,9 +150,11 @@ _**Refactoring:**_ The part of commented-out code is previously kept just for te
 an example of commented-out code we removed is this:
 
 ```
+
   {/* <div className='calendar-error-resolve'>
 
       {/* <div className='calendar-error-resolve'>Calendar is only visible on larger screens!</div> */}
+      
 ```
 
 A fifth code smell we generally saw across the code was that of **long functions**. Although this goes in hand with the first smell of *duplicate code* being written across the software, the issue with long functions definitely needs to be resolved
