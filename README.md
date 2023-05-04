@@ -145,6 +145,8 @@ _**Refactoring:**_ We removed the unused value and unused library in ProfileSele
 A fourth code smell is that the ProfileSelect component includes a commented-out button to "Edit Profile", which is a **non-existing affordance of the software**. It's important to remove code like this entirely because it doesn't fit the affordances
 of the application and is simply confusing to leave documented within the program.
 
+_**Refactoring:**_ The part of commented-out code is previously kept just for testing. This part of code is totally unnecessary in the app, so we removed the commented-out code to make the comment more clear and less confusing.
+
 an example of commented-out code we removed is this:
 
 ```
@@ -152,8 +154,6 @@ an example of commented-out code we removed is this:
 
       {/* <div className='calendar-error-resolve'>Calendar is only visible on larger screens!</div> */}
 ```
-
-_**Refactoring:**_ The part of commented-out code is previously kept just for testing. This part of code is totally unnecessary in the app, so we removed the commented-out code to make the comment more clear and less confusing.
 
 A fifth code smell we generally saw across the code was that of **long functions**. Although this goes in hand with the first smell of *duplicate code* being written across the software, the issue with long functions definitely needs to be resolved
 because the software loses its articulation and readability when it's long and unorganized.
