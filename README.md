@@ -78,7 +78,7 @@ _Figure 1 - UML Component Diagram of OurFamily Website_
 
 This figure illustrates how elements interact with each other in the project.
 
-In Figure 1, we listed our main components in the app with their attributes and key functions. OurFamily app is constructed with 4 key components: ProfileSelect, Cookbook Page, Calendar Page and PhotoAlbum page. In each components, there are sub components like CookBook Filter and photoGallery to help support the key components works. 
+In Figure 1, we listed our main components in the app with their attributes and key functions. OurFamily app is constructed with 4 key components: ProfileSelect, Cookbook Page, Calendar Page and PhotoAlbum page. In each components, there are sub components like CookBook Filter and photoGallery to help support the key components works.
 
 ### 2. Code's Process Flow
 
@@ -90,7 +90,7 @@ Other than Calendar function, another flow in the app is about PhotoAlbums compo
 
 After navigating to PhotoAlbums Page, the page pass a props to the function `Jumbotron(props)` in Header component. In that case, the jumbotron will display different illustration image under the navbar. `Jumbotron(props)` will display different content based on the props that tell which page the app is current on. For PhotoAlbum page, there will be displaiyng 3 different cards: "All Image","Kids Album" and "vacation Album" which represent 3 different album of photos. Whenever a card is clicked, the PhotoAlbum page will call `PhotoGallery()` to query the stored photo. Also, `PhotoGallery()` handle with uploading and storing new uploaded image.
 
-Lastly, there is a process flow for Cookbook component. Figure 2 illustrates a flow from user's view of using Cookbook to add a new recipe in the app. User could add a new recipe form in cookpage by clicking "add a recipe" button, then inputing new recipe information and then saving. 
+Lastly, there is a process flow for Cookbook component. Figure 2 illustrates a flow from user's view of using Cookbook to add a new recipe in the app. User could add a new recipe form in cookpage by clicking "add a recipe" button, then inputing new recipe information and then saving.
 
 <img src="images/draft-UML-sequence-diagram.png" alt="draft UML sequence diagram">
 
@@ -171,11 +171,11 @@ The Documentation of original code is not that much as we mentioned in our code 
 
 #### Standard Violations
 
-From our inspection, we don't see any standard violations from our codebase. We meet the accessibility requirements with accessible colors and alternative text for images.
+From our inspection, we don't see any standard violations from our codebase. We meet the accessibility requirements with accessible colors and alternative text for images. There is however concerns about meeting accessibility standards that fall in hand with screen readers, which we can tell due to the lack of aria-tagging throughout the software.
 
 #### Design Quality Deficiencies
 
-We haven't found any design quality deficiencies in our codebase. With our automated test, we found that the functions in our app can run correctly without requiring any levels of qualities.
+We haven't found any design quality deficiencies in our codebase. With our automated test, we found that the functions in our app can run correctly without requiring any levels of qualities. There is however just the lack of reusability across code, which we discussed in the code smells section regarding **duplicate code** and **long functions**. 
 
 ## Unit/Integration Tests
 
@@ -190,7 +190,7 @@ We created about a dozen of unit tests for test the functionality of the Profile
 |1|`<ProfileSelect/>`| Text "Well-technically" rendered.| To test If the ProfileSelect page render correctly as our code.|
 |2|`<ProfileSelect/>`| mocked setCurrentProfile callback function's calling times equals to 0| To test no `setCurrentProfile` function being called when no avatar is clicked|
 |3|`<ProfileSelect/>` & userEvent.click()|mocked setCurrentProfile callback function being called| To test if the setCurrentProfile function actually works when clikcing different 4 avatars. There are 4 tests for this test to achieve 100% coverage|
-|4|`<ProfileSelect/>`| div with a test-id "home-banner" to be in the Document | Test the style of ProfileSelect is correct with a correct div wrapper the page| 
+|4|`<ProfileSelect/>`| div with a test-id "home-banner" to be in the Document | Test the style of ProfileSelect is correct with a correct div wrapper the page|
 |5|`<Footer>`|text "OurFamily is a University of Washington course project." to be in the document| Test if the footer render properly with the expected text|
 |6|`<Footer>`|have style `background-color: "#ece4da"` and `height: "7vh"`| Test the style of footer is proper|
 |7|`<CookbookFitler>`| checkboxs's length is 10 | There are 10 different options for fitlering cookbook, and this test if the all of the checkboxs are rendered|
@@ -216,4 +216,3 @@ run `Npm test footer` to see Footer.test.js *or* `Npm test profile` to see Profi
 _Figure 3 - testing coverage_
 
 The three main functionalities we tested in our automated test is the interaction with Footer, interaction with ProfileSelect component and the functionality of Cookbook Filter. These three components got 100% coverage.
-
