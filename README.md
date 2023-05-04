@@ -73,7 +73,7 @@ enables users to add images from their local server unto this gallery.
 Contains copyright information.
 
 <img src="images/draft-UML-component-diagram.png" alt="draft-UML-diagram">
-*Figure 1 - UML Component Diagram of OurFamily Website*
+_Figure 1 - UML Component Diagram of OurFamily Website_
 
 This figure illustrates how elements interact with each other in the project.
 
@@ -86,7 +86,7 @@ After navigating to Calendar page, the app will render a family calendar on the 
 Other than Calendar function, another flow is for Albums component. Whenever the nav item of Album is clicked, the page will be redirect to Album page with a hyperlink. Similarly, the page will redirect to Cookbook Page if the nav item of Cookbook is clicked.
 
 <img src="images/draft-UML-sequence-diagram.png" alt="draft UML sequence diagram">
-*Figure 2 - UML Sequence Diagram of OurFamily Website*
+_Figure 2 - UML Sequence Diagram of OurFamily Website_
 
 Caption here: asdasdsad
 
@@ -121,22 +121,24 @@ because the software loses its articulation and readability when it's long and u
 
 #### Design Quality Deficiencies
 
+## Unit/Integration Tests
+### Testing Overview
 
-## How to run our tests
+### Testing Breakdown
 
-First, run the following command:
+## Testing Instruction
+- First, run the following command:
 `npm install --save-dev jest --force`
 
-Next, run `Npm test` followed by typing `a` into the terminal and hitting enter to run all of the tests.
+- Next, run `Npm test` followed by typing `a` into the terminal and hitting enter to run all of the tests.
 
 If you'd like to run each test file individually, hit ^C to exit out of the Watch Usage interface back onto the regular terminal, and
 run `Npm test footer` to see Footer.test.js *or* `Npm test profile` to see ProfileSelect.test.js *or* `Npm test cookbook` to see CookbookFilter.test.js.
 
-You can also run `npm run test:coverage` to see the generated coverage report, as shown below.
+- You can also run `npm run test:coverage` to see the generated coverage report, as shown below.
 
 
 ## Automated test coverage
 
 <img src="images/test-coverage.png" alt="automated test coverage">
-
-So the three main functionalities we tested in our automated test is the interaction with Footer, interaction with ProfileSelect component and the functionality of Cookbook Filter. These three components got 100% coverage.
+_Figure 3 - The three main functionalities we tested in our automated test is the interaction with Footer, interaction with ProfileSelect component and the functionality of Cookbook Filter. These three components got 100% coverage._
