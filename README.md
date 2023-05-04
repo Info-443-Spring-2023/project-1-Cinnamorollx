@@ -23,7 +23,7 @@ some content here
 
 Figure 1: UML Component Diagram of OurFamily Website
 
-Caption here: asdasda
+A Component Diagram of OurFamily Website to present the relationship between each components.
 
 ### 2. Code's Process Flow
 
@@ -37,7 +37,7 @@ Other than Calendar function, another flow is for Albums component. Whenever the
 
 Figure 2: UML Sequence Diagram of OurFamily Website
 
-Caption here: asdasdsad
+A seuqence flow of a user trying to add a new recipe in Cookbook Page.
 
 
 ## Architectural Assessment
