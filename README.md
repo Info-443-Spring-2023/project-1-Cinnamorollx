@@ -179,15 +179,23 @@ We haven't found any design quality deficiencies in our codebase. With our autom
 
 ## Unit/Integration Tests
 
-We created about a dozen of unit tests for test the functionality of the ProfileSelct component, Cookbook filter components and the style of footer component. We choose these 3 aspects of our code because whether these three pages render and works correctly strongly affect the performance of the app. As the first step and the first page to be seen on the website, ProfileSelct page should render correctly and it should then navigate to the homepage with the correct username that the user choose. 
-
 ### Testing Overview
 
+We created about a dozen of unit tests for test the functionality of the ProfileSelct component, Cookbook filter components and the style of footer component. We choose these 3 aspects of our code because whether these three pages render and works correctly strongly affect the performance of the app. As the first step and the first page to be seen on the website, ProfileSelct page should render correctly and it should navigate to the homepage with the correct username that the user choose. Other than ProfileSelect, we also test if the footer style is correct as expected and if the filter in Cookbook component could work properly. We expect the footer to have the correct text and color as we designed and we expecte the filter's checkbox to be responsive to user's click and filter correctly.
 
 ### Testing Breakdown
 
-
-## Testing Instruction
+|Test # | Input | Expected output | Explanation |
+|---|----|----|------|
+|1|`<ProfileSelect/>`| Text "Well-technically" rendered.| To test If the ProfileSelect page render correctly as our code.|
+|2|`<ProfileSelect/>`| mocked setCurrentProfile callback function's calling times equals to 0| To test no `setCurrentProfile` function being called when no avatar is clicked|
+|3|`<ProfileSelect/>` & userEvent.click()|mocked setCurrentProfile callback function being called| To test if the setCurrentProfile function actually works when clikcing different 4 avatars. There are 4 tests for this test to achieve 100% coverage|
+|4|`<ProfileSelect/>`| div with a test-id "home-banner" to be in the Document | Test the style of ProfileSelect is correct with a correct div wrapper the page| 
+|5|`<Footer>`|text "OurFamily is a University of Washington course project." to be in the document| Test if the footer render properly with the expected text|
+|6|`<Footer>`|have style `background-color: "#ece4da"` and `height: "7vh"`| Test the style of footer is proper|
+|7|`<CookbookFitler>`| checkboxs's length is 10 | There are 10 different options for fitlering cookbook, and this test if the all of the checkboxs are rendered|
+|8|`<CookbookFilter>` & userEvent.click() | checkbox.checked to be true | In this test, we wrote a iteration function to loop each checkbox of the filter and make sure every checkbox's "state of checked" is `true` when being clicked.|
+### Testing Instruction
 
 - All of our test file is located in src/components/tests directory.
 
@@ -201,7 +209,7 @@ run `Npm test footer` to see Footer.test.js *or* `Npm test profile` to see Profi
 
 - You can also run `npm run test:coverage` to see the generated coverage report, as shown below.
 
-## Automated test coverage
+### Automated test coverage
 
 <img src="images/test-coverage.png" alt="automated test coverage">
 
