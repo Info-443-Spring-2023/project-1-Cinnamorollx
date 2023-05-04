@@ -90,14 +90,13 @@ Other than Calendar function, another flow in the app is about PhotoAlbums compo
 
 After navigating to PhotoAlbums Page, the page pass a props to the function `Jumbotron(props)` in Header component. In that case, the jumbotron will display different illustration image on the bottom of the navbar. `Jumbotron(props)` will display different content based on the props that tell which page the app is current on. For PhotoAlbum page, there will be displaiyng 3 different cards: "All Image","Kids Album" and "vacation Album" which represent 3 different album of photos. Whenever a card is clicked, the PhotoAlbum page will call `PhotoGallery()` to query the stored photo. Also, `PhotoGallery()` handle with uploading and storing new uploaded image.
 
-Lastly, there is a process flow for Cookbook component. Figure 2 illustrate a flow from user's view of using Cookbook in the app. 
+Lastly, there is a process flow for Cookbook component. Figure 2 illustrates a flow from user's view of using Cookbook to add a new recipe in the app. User could add a new recipe form in cookpage by clicking "add a recipe" button, then inputing new recipe information and then saving. In code process side, when navigating to cookbook page, the app will render the current cards of recipes. Cookbook page uses Firebase to store the recipe cards. The default filter value is an empty array, which means that every recipe cards will be rendered. Whenever a checkbox in Cookbook filter is clicked, the filter array would add the name of the checkbox to the array, and page will rerender new recipe cards after filtering with the filter array. Beside, when the "add a recipe" button is pressed, a function `handleModalShow` will be called to change the style of a form of adding recipe to visible which creates a pop up in browser. When "save changes" button in the form is pressed, the input in the form will be saved to firebase database.
 
 <img src="images/draft-UML-sequence-diagram.png" alt="draft UML sequence diagram">
 
 _Figure 2 - UML Sequence Diagram of OurFamily Website_
 
 A seuqence flow of a user trying to add a new recipe in Cookbook Page.
-
 
 ## Architecture Assessment
 
@@ -112,30 +111,54 @@ The first code smell we detected was that of **duplicate code** in both the Cook
 
 _**Refactoring:**_ In Cookbook Filter, these are couple of duplicated lines for creating the checkbox in the filter with. In previous code, we manually create 10 Forms for the checkboxs. In our refactoring, we create a new function `createForm(name,type)` that could create a form with the parameter "name" and "type". By doing so, we don't need to write a long line of a form element when we want to add a new checkbox, instead, we could just call `createForm()` with the name we want and the type to create a checkbox.
 
-Also, in HomePage, there is a duplicated rendering
+Here is the refactor code:
+
+```
+
+function createForm(name, type) {
+    return(
+      <Form.Check
+            inline
+            label= {name.charAt(0).toUpperCase() + name.slice(1)}
+            type={type}
+            name = {name}
+            onClick={props.clickHandle} //clickHandle is passed through the props
+       />
+
+    )
+  }
+
+```
 
 The second code smell we detected was that there were **zero comments**. This is concerning because specifically for one of our elements of concern, the ProfileSelect component, a comment explaining one of the state functionalities that was passed
 parent to child would have been really helpful because the process of switching users is not the most intuitive. It's especially worth commenting what the initial state value is because that information is difficult to find for anyone who did not write the original version of code. Additionally, within the CookbookFilter component, comments would have been helpful to indicate what the nature of the click handler function is, since it's passed in as a prop.
 
-_**Refactoring:**_ We add some comments 
+_**Refactoring:**_ We add some neccessary comment in ProfileSeelct. Actually when a new person read the code, they might not know where the props is from in PorfileSelect. Thus, we add some short comments to explain the father component that passes the props to ProfileSelect.
 
 A third code smell was that of **speculative generality** within the CookbookFilter component, because the function
 is tracking units such as the "id" and "name" of each of the checkboxes despite this information never being used. The
 function already tracks the "label" property of each of the checkboxes, which is how other coupled functions are able
 to use the information to filter the cookbook to the users' selections, so the "id" and "name" properties can be discarded.
 
-_**Refactoring:**_ We removed the unused value and unused library in ProfileSelect, Footer and CookbookFilter. With linter, the unused value is marked with underline and we just removed the unused "id" property of in our cookbook filter.
+_**Refactoring:**_ We removed the unused value and unused library in ProfileSelect, Footer and CookbookFilter. With linter's help, the unused value is marked with underline. we removed the unused "id" property of forms in our cookbook filter.
 
 A fourth code smell is that the ProfileSelect component includes a commented-out button to "Edit Profile", which is a **non-existing affordance of the software**. It's important to remove code like this entirely because it doesn't fit the affordances
 of the application and is simply confusing to leave documented within the program.
 
-_**Refactoring:**_ 
+an example of commented-out code we removed is this:
 
+```
+  {/* <div className='calendar-error-resolve'>
+
+      {/* <div className='calendar-error-resolve'>Calendar is only visible on larger screens!</div> */}
+```
+
+_**Refactoring:**_ The part of commented-out code is previously kept just for testing. This part of code is totally unnecessary in the app, so we removed the commented-out code to make the comment more clear and less confusing.
 
 A fifth code smell we generally saw across the code was that of **long functions**. Although this goes in hand with the first smell of *duplicate code* being written across the software, the issue with long functions definitely needs to be resolved
 because the software loses its articulation and readability when it's long and unorganized.
 
-_**Refactoring:**_
+_**Refactoring:**_ Refactoring a long functions is time-consuming and risky. We make some slight changes to make the functions more breif. Also we include some comments in long functions to help others understand what the function is doing.
 
 #### Documentation/Readability Concerns
 

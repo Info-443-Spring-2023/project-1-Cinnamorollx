@@ -150,9 +150,6 @@ const Calendar = () => {
           </Modal.Footer>
         </Modal>
       </div>
-      {/* <div className='calendar-error-resolve'>
-
-      {/* <div className='calendar-error-resolve'>Calendar is only visible on larger screens!</div> */}
     </main>
   );
 }

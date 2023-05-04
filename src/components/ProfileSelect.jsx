@@ -46,7 +46,6 @@ const ProfileSelect = ({setCurrentProfile}) => {
               </div>
           </div>
         </main>
-        {/* <button className="profile-editor-btn" type="button">Edit Profile</button> */}
       </div>
     </>
   );
